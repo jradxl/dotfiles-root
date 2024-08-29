@@ -1,5 +1,18 @@
 # ~/.profile: executed by Bourne-compatible login shells.
 
+pathmunge () {
+    case ":${PATH}:" in
+        *:"$1":*)
+            ;;
+        *)
+            if [ "$2" = "after" ] ; then
+                PATH=$PATH:$1
+            else
+                PATH=$1:$PATH
+            fi
+    esac
+}
+
 if [ "$BASH" ]; then
   if [ -f ~/.bashrc ]; then
     . ~/.bashrc
@@ -9,4 +22,6 @@ fi
 mesg n 2> /dev/null || true
 
 # Created by `pipx` on 2024-02-14 17:22:49
-export PATH="$PATH:/root/.local/bin"
+#NOTUSED export PATH="$PATH:/root/.local/bin"
+pathmunge "/root/.local/bin"
+

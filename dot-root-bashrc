@@ -145,8 +145,8 @@ fi
 #    . /etc/bash_completion
 #fi
 
-pathmunge /opt/nvim-linux64/bin
-pathmunge /usr/local/go/bin
+pathmunge "/opt/nvim-linux64/bin"
+pathmunge "/usr/local/go/bin"
 
 # Created by `pipx` on 2024-08-29 21:53:23
 #NOT USED export PATH="$PATH:/root/.local/bin"
