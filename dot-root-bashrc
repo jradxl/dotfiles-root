@@ -115,26 +115,13 @@ if [[ "$(pwd)" == "$HOME" ]]; then
     #echo "SHOULDRUN: $SHOULDRUN"
     if [[ "$SHOULDRUN" == "Y" ]]; then
         echo "RUN ONCE"
-        eval $(keychain --clear --gpg2 --nogui --noask --eval --agents ssh,gpg)
-        ##$HOME/scripts/go-version.sh
-        #$HOME/.local/bin/go-version-user.sh
     else
-        echo ""
-        eval $(keychain --gpg2 --nogui --noask --eval --agents ssh,gpg)
-        #keychain --gpg2 --nogui --noask --eval --agents ssh,gpg
-        keychain --list
-        #ssh-add -l
+        echo "RUN NORMAL"
     fi
 fi
 
 if [[ -z "$HOSTNAME" ]]; then
   HOSTNAME=$(uname -n)
-fi
-if [[ -f $HOME/.keychain/$HOSTNAME-sh ]]; then
-  source $HOME/.keychain/$HOSTNAME-sh
-fi
-if [[ -f $HOME/.keychain/$HOSTNAME-sh-gpg ]]; then
-  source $HOME/.keychain/$HOSTNAME-sh-gpg
 fi
 
 # some more ls aliases
